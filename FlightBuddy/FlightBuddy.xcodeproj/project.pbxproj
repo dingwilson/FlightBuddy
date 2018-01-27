@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E257F046AD2F3C0EB64B186 /* Pods_FlightBuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5FE7033496EFE12EED35B2 /* Pods_FlightBuddy.framework */; };
 		C8EB8689201CF9980038AF87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EB8688201CF9980038AF87 /* AppDelegate.swift */; };
 		C8EB868B201CF9980038AF87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EB868A201CF9980038AF87 /* ViewController.swift */; };
 		C8EB868E201CF9980038AF87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8EB868C201CF9980038AF87 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		228AB0E6442462F9B2ECEACE /* Pods-FlightBuddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightBuddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlightBuddy/Pods-FlightBuddy.release.xcconfig"; sourceTree = "<group>"; };
+		552ACF4E2D888B52804F7BAB /* Pods-FlightBuddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightBuddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlightBuddy/Pods-FlightBuddy.debug.xcconfig"; sourceTree = "<group>"; };
+		BA5FE7033496EFE12EED35B2 /* Pods_FlightBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlightBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8EB8685201CF9980038AF87 /* FlightBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8EB8688201CF9980038AF87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8EB868A201CF9980038AF87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E257F046AD2F3C0EB64B186 /* Pods_FlightBuddy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AFDBEE275BAF93B4B49755F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA5FE7033496EFE12EED35B2 /* Pods_FlightBuddy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C8EB867C201CF9970038AF87 = {
 			isa = PBXGroup;
 			children = (
 				C8EB8687201CF9980038AF87 /* FlightBuddy */,
 				C8EB8686201CF9980038AF87 /* Products */,
+				E7E1B01C82FFCEE42A7DE7E4 /* Pods */,
+				AFDBEE275BAF93B4B49755F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = FlightBuddy;
 			sourceTree = "<group>";
 		};
+		E7E1B01C82FFCEE42A7DE7E4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				552ACF4E2D888B52804F7BAB /* Pods-FlightBuddy.debug.xcconfig */,
+				228AB0E6442462F9B2ECEACE /* Pods-FlightBuddy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8EB8697201CF9980038AF87 /* Build configuration list for PBXNativeTarget "FlightBuddy" */;
 			buildPhases = (
+				770EAF7714AA1920366D2835 /* [CP] Check Pods Manifest.lock */,
 				C8EB8681201CF9980038AF87 /* Sources */,
 				C8EB8682201CF9980038AF87 /* Frameworks */,
 				C8EB8683201CF9980038AF87 /* Resources */,
+				24D85727A0B27577EE5408A4 /* [CP] Embed Pods Frameworks */,
+				DD21A3FF15E377731DCCDA2C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24D85727A0B27577EE5408A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FlightBuddy/Pods-FlightBuddy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PeerKit/PeerKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PeerKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlightBuddy/Pods-FlightBuddy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		770EAF7714AA1920366D2835 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FlightBuddy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD21A3FF15E377731DCCDA2C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlightBuddy/Pods-FlightBuddy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C8EB8681201CF9980038AF87 /* Sources */ = {
@@ -272,6 +353,7 @@
 		};
 		C8EB8698201CF9980038AF87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 552ACF4E2D888B52804F7BAB /* Pods-FlightBuddy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +369,7 @@
 		};
 		C8EB8699201CF9980038AF87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 228AB0E6442462F9B2ECEACE /* Pods-FlightBuddy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
