@@ -6,6 +6,5 @@ target 'FlightBuddy' do
   use_frameworks!
 
   # Pods for FlightBuddy
-  pod 'PeerKit'
-
+  
 end
