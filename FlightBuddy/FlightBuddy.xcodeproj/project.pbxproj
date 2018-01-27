@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3E257F046AD2F3C0EB64B186 /* Pods_FlightBuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5FE7033496EFE12EED35B2 /* Pods_FlightBuddy.framework */; };
+		C882361C201D09D400B05799 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882361B201D09D400B05799 /* ConnectionManager.swift */; };
+		C882361E201D0A7100B05799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882361D201D0A7100B05799 /* User.swift */; };
 		C8EB8689201CF9980038AF87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EB8688201CF9980038AF87 /* AppDelegate.swift */; };
 		C8EB868B201CF9980038AF87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EB868A201CF9980038AF87 /* ViewController.swift */; };
 		C8EB868E201CF9980038AF87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8EB868C201CF9980038AF87 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 		228AB0E6442462F9B2ECEACE /* Pods-FlightBuddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightBuddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlightBuddy/Pods-FlightBuddy.release.xcconfig"; sourceTree = "<group>"; };
 		552ACF4E2D888B52804F7BAB /* Pods-FlightBuddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightBuddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlightBuddy/Pods-FlightBuddy.debug.xcconfig"; sourceTree = "<group>"; };
 		BA5FE7033496EFE12EED35B2 /* Pods_FlightBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlightBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C882361B201D09D400B05799 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		C882361D201D0A7100B05799 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C8EB8685201CF9980038AF87 /* FlightBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8EB8688201CF9980038AF87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8EB868A201CF9980038AF87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +52,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C882361F201D0A7700B05799 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C882361D201D0A7100B05799 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C8823620201D0A7F00B05799 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C882361B201D09D400B05799 /* ConnectionManager.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		C8EB867C201CF9970038AF87 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +89,8 @@
 		C8EB8687201CF9980038AF87 /* FlightBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				C8823620201D0A7F00B05799 /* Controllers */,
+				C882361F201D0A7700B05799 /* Models */,
 				C8EB8688201CF9980038AF87 /* AppDelegate.swift */,
 				C8EB868A201CF9980038AF87 /* ViewController.swift */,
 				C8EB868C201CF9980038AF87 /* Main.storyboard */,
@@ -217,7 +239,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C882361E201D0A7100B05799 /* User.swift in Sources */,
 				C8EB868B201CF9980038AF87 /* ViewController.swift in Sources */,
+				C882361C201D09D400B05799 /* ConnectionManager.swift in Sources */,
 				C8EB8689201CF9980038AF87 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
