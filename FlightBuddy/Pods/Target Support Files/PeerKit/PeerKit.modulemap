@@ -1,0 +1,6 @@
+framework module PeerKit {
+  umbrella header "PeerKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
