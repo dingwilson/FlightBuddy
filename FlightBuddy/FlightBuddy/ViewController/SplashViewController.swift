@@ -14,7 +14,6 @@ class SplashViewController: UIViewController {
     private let videoBackground = VideoBackground()
 
     let defaults = UserDefaults.standard
-    let signal = Signal.instance
 
     override var prefersStatusBarHidden: Bool {
         return true
@@ -28,11 +27,6 @@ class SplashViewController: UIViewController {
         setupVideoBackground()
 
         setupBarcodeScannerText()
-        
-        signal.initialize(serviceType: Constants.flightList[0].value)
-        signal.delegate = self
-        
-        signal.autoConnect()
     }
 
     func clearUserDefaults() {
@@ -108,22 +102,4 @@ extension SplashViewController: BarcodeScannerDismissalDelegate {
     func barcodeScannerDidDismiss(_ controller: BarcodeScannerController) {
         controller.dismiss(animated: true, completion: nil)
     }
-}
-
-extension SplashViewController: SignalDelegate {
-    func signal(didReceiveData data: Data, ofType type: UInt32) {
-        if type == DataType.string.rawValue {
-            let string = data.convert() as! String
-            print(string)
-        }
-    }
-    
-    func signal(connectedDevicesChanged devices: [String]) {
-        if (devices.count > 0) {
-            print("Connected Devices: \(devices)")
-        } else {
-            print("No devices connected")
-        }
-    }
-    
 }
