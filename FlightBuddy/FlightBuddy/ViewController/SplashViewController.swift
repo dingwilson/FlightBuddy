@@ -14,6 +14,7 @@ class SplashViewController: UIViewController {
     private let videoBackground = VideoBackground()
 
     let defaults = UserDefaults.standard
+    let signal = Signal.instance
 
     override var prefersStatusBarHidden: Bool {
         return true
@@ -27,6 +28,16 @@ class SplashViewController: UIViewController {
         setupVideoBackground()
 
         setupBarcodeScannerText()
+        
+        connectServer()
+        
+    }
+
+    func connectServer() {
+        let flight = FlightService.instance.getCurrentFlight()
+        signal.initialize(serviceType: flight.value )
+        self.signal.delegate = self
+        self.signal.autoConnect()
     }
 
     func clearUserDefaults() {
@@ -101,5 +112,28 @@ extension SplashViewController: BarcodeScannerErrorDelegate {
 extension SplashViewController: BarcodeScannerDismissalDelegate {
     func barcodeScannerDidDismiss(_ controller: BarcodeScannerController) {
         controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SplashViewController: SignalDelegate {
+    
+    func signal(didReceiveData data: Data, ofType type: UInt32) {
+        if type == DataType.weather.rawValue {
+            let string = data.convert() as! String
+            FlightService.instance.setWeather(weatherStr: string)
+            print("Set weather...")
+        } else if type == DataType.flight.rawValue {
+            let string = data.convert() as! String
+            FlightService.instance.setCurrentFlight(flight: Flight(flightInfo: string))
+            print("Set flight...")
+        }
+    }
+    
+    func signal(connectedDevicesChanged devices: [String]) {
+        if (devices.count > 0) {
+            print("Connected Devices: \(devices)")
+        } else {
+            print("No devices connected")
+        }
     }
 }
