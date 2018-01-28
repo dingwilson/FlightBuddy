@@ -197,6 +197,9 @@ class FlightViewController: UIViewController {
     }
     
     private func addItem(seat: Seat) {
+        if (seat.statusInformation.count == 0) {
+            seat.statusInformation = "Help"
+        }
         self.orders.append(seat)
         self.tableView.reloadData()
     }

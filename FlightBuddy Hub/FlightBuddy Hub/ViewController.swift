@@ -8,8 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Constants.flightList.count
+    }
+    
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return Constants.flightList[row].displayName
+//    }
+
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        return NSAttributedString(string: Constants.flightList[row].displayName, attributes: [NSAttributedStringKey.foregroundColor:UIColor.white])
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        pickerView.delegate = self
+    }
+    
+    @IBOutlet weak var pickerView: UIPickerView!
     let flightService = FlightService.instance
     
     @IBAction func didPressJoinButton(_ sender: UIButton) {
