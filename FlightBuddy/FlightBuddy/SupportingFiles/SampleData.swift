@@ -49,9 +49,14 @@ final class SampleData {
     
     var currentSender: Sender {
         let userSettings = self.defaults.object(forKey: "userString") as! String
-        
         let strComp = userSettings.components(separatedBy: "|")
-        return Sender(id: strComp[0], displayName: strComp[0])
+        let name = strComp[0]
+        let nameComp = name.components(separatedBy: " ")
+        let firstName = nameComp[0]
+        let lastNameChar = " \(nameComp[1].first!)."
+        let fullName = "\(firstName)\(lastNameChar)"
+        return Sender(id: fullName, displayName: fullName)
+
     }
     
     //    let messageImages: [UIImage] = [#imageLiteral(resourceName: "Dan-Leonard"), #imageLiteral(resourceName: "Tim-Cook"), #imageLiteral(resourceName: "Steve-Jobs")]

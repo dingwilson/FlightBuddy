@@ -123,7 +123,12 @@ extension AppDelegate: SignalDelegate {
         } else if type == DataType.chat.rawValue {
             let strComp = (data.convert() as! String).components(separatedBy: "|")
             let overallMessage = strComp[strComp.count-1]
-            let message = MockMessage(text: overallMessage, sender: Sender(id: strComp[0], displayName: strComp[0]), messageId: UUID().uuidString, date: Date())
+            let name = strComp[0]
+            let nameComp = name.components(separatedBy: " ")
+            let firstName = nameComp[0]
+            let lastNameChar = " \(nameComp[1].first!)."
+            let fullName = "\(firstName)\(lastNameChar)"
+            let message = MockMessage(text: overallMessage, sender: Sender(id: fullName, displayName: fullName), messageId: UUID().uuidString, date: Date())
             MessageService.instance.messages.append(message)
         }
     }
