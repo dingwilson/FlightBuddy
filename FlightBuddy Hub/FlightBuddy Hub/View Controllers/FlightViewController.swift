@@ -19,6 +19,8 @@ class FlightViewController: UIViewController {
     }
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var connectionsLabel: UILabel!
+    
     let signal = Signal.instance
     var orders: [Seat] = []
 
@@ -474,6 +476,8 @@ extension FlightViewController: SignalDelegate {
         } else {
             print("No devices connected")
         }
+
+        self.connectionsLabel.text = "Connections: \(devices.count)"
     }
     
     func sendWeatherData() {
