@@ -21,6 +21,8 @@
 		C8EB868E201CF9980038AF87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8EB868C201CF9980038AF87 /* Main.storyboard */; };
 		C8EB8690201CF9980038AF87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8EB868F201CF9980038AF87 /* Assets.xcassets */; };
 		C8EB8693201CF9980038AF87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8EB8691201CF9980038AF87 /* LaunchScreen.storyboard */; };
+		EAA29028201D38DD0047D11C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA29027201D38DD0047D11C /* Constants.swift */; };
+		EAA2902B201D390A0047D11C /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA2902A201D390A0047D11C /* Flight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		C8EB868F201CF9980038AF87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8EB8692201CF9980038AF87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8EB8694201CF9980038AF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAA29027201D38DD0047D11C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EAA2902A201D390A0047D11C /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,14 @@
 				228AB0E6442462F9B2ECEACE /* Pods-FlightBuddy.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EAA29029201D38FD0047D11C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EAA2902A201D390A0047D11C /* Flight.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +305,8 @@
 				C8ACC918201D62BE000C7CEF /* Flight.swift in Sources */,
 				C8EB8689201CF9980038AF87 /* AppDelegate.swift in Sources */,
 				C8ACC904201D3493000C7CEF /* Helper.swift in Sources */,
+				EAA29028201D38DD0047D11C /* Constants.swift in Sources */,
+				EAA2902B201D390A0047D11C /* Flight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +448,7 @@
 				DEVELOPMENT_TEAM = 585SNYAD83;
 				INFOPLIST_FILE = "$(SRCROOT)/FlightBuddy/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wilsonding.FlightBuddy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nguyenjkevin.FlightBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -450,7 +464,7 @@
 				DEVELOPMENT_TEAM = 585SNYAD83;
 				INFOPLIST_FILE = "$(SRCROOT)/FlightBuddy/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wilsonding.FlightBuddy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nguyenjkevin.FlightBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

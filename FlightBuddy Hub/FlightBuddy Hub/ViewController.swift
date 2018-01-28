@@ -9,17 +9,28 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    let flightService = FlightService.instance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("View did load called...")
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func didPressJoinButton(_ sender: UIButton) {
+        print("Pressed button...")
+        let flight: Flight = Constants.flightList[0];
+        self.startConnection(flight: flight)
     }
-
-
+    
+    
+    private func startConnection(flight: Flight) {
+        flightService.setCurrentFlight(flight: flight)
+        performSegue(withIdentifier: "toFlightView", sender: self)
+    }
 }
+
+
+
 

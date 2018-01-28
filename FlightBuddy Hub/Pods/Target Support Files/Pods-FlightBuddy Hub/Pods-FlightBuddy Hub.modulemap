@@ -1,0 +1,6 @@
+framework module Pods_FlightBuddy_Hub {
+  umbrella header "Pods-FlightBuddy Hub-umbrella.h"
+
+  export *
+  module * { export * }
+}
