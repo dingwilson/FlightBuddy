@@ -11,4 +11,6 @@ import Foundation
 enum DataType: UInt32 {
     case string = 100
     case image = 101
+    case weather = 102
+    case flight = 103
 }

@@ -12,6 +12,8 @@ enum seatStatus {
 }
 
 class FlightViewController: UIViewController {
+    
+    let signal = Signal.instance
 
     @IBOutlet weak var seat12A: UIButton!
     @IBOutlet weak var seat12B: UIButton!
@@ -41,6 +43,14 @@ class FlightViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let flight = FlightService.instance.getCurrentFlight()
+        
+        print("Starting service as: \(flight.value)")
+        signal.initialize(serviceType: flight.value )
+        print("Setting signal delegate...")
+        self.signal.delegate = self
+        print("Enabling auto connect...")
+        self.signal.autoConnect()
         
         self.log(m: "Adding references to row arrays")
         row12.append(seat12A)
@@ -81,12 +91,8 @@ class FlightViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-//        updateSeat(seat: "12A", status: .checkedin)
-        let sampleString = "Wilson Ding|14B|3|Food"
-        let seat = Seat.convertStringToSeat(seat: sampleString)
-        self.updateSeat(seat: seat)
-        
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -133,4 +139,33 @@ class FlightViewController: UIViewController {
     }
     */
 
+}
+
+extension FlightViewController: SignalDelegate {
+    func signal(didReceiveData data: Data, ofType type: UInt32) {
+        if type == DataType.string.rawValue {
+            let string = data.convert() as! String
+            let seat = Seat.convertStringToSeat(seat: string)
+            self.updateSeat(seat: seat)
+        }
+    }
+    
+    func signal(connectedDevicesChanged devices: [String]) {
+        if (devices.count > 0) {
+            print("Connected Devices: \(devices)")
+            self.sendFlightData()
+            self.sendWeatherData()
+        } else {
+            print("No devices connected")
+        }
+    }
+    
+    func sendWeatherData() {
+        signal.sendObject(object: Constants.weatherStr, type: DataType.weather.rawValue)
+    }
+    
+    func sendFlightData() {
+        signal.sendObject(object: Constants.flightInfo, type: DataType.flight.rawValue)
+    }
+    
 }

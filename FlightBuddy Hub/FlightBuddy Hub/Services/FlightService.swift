@@ -9,7 +9,7 @@
 import Foundation
 
 class FlightService {
-    var currentFlight: Flight = Flight(value: "", displayName: "")
+    var currentFlight: Flight = Flight(flightInfo: Constants.flightInfo)
     
     static let instance = FlightService()
     
@@ -25,8 +25,12 @@ class FlightService {
     
     func getCurrentFlight() -> Flight {
         log(m: "Grabbing current flight...")
-        return Flight(value: currentFlight.value, displayName: currentFlight.displayName)
+        return currentFlight;
     }
+    
+//    func getCurrentWeather() -> Weather {
+//        
+//    }
     
     private func log(m: String) {
         print("FLIGHT SERVICE: \(m)")

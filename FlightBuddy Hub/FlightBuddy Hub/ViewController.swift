@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let signal = Signal.instance
     let flightService = FlightService.instance
     
     override func viewDidLoad() {
@@ -27,14 +26,6 @@ class ViewController: UIViewController {
     
     
     private func startConnection(flight: Flight) {
-        
-        print("Starting service as: \(flight.value)")
-        signal.initialize(serviceType: flight.value )
-        print("Setting signal delegate...")
-        signal.delegate = self
-        print("Enabling auto connect...")
-        signal.autoConnect()
-        
         flightService.setCurrentFlight(flight: flight)
         performSegue(withIdentifier: "toFlightView", sender: self)
     }
@@ -42,21 +33,4 @@ class ViewController: UIViewController {
 
 
 
-extension ViewController: SignalDelegate {
-    func signal(didReceiveData data: Data, ofType type: UInt32) {
-        if type == DataType.string.rawValue {
-            let string = data.convert() as! String
-            print(string)
-        }
-    }
-    
-    func signal(connectedDevicesChanged devices: [String]) {
-        if (devices.count > 0) {
-            print("Connected Devices: \(devices)")
-            signal.sendObject(object: "Hello Wilson", type: DataType.string.rawValue)
-        } else {
-            print("No devices connected")
-        }
-    }
-    
-}
+

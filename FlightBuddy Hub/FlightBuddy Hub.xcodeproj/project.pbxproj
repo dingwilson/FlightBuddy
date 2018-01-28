@@ -21,6 +21,7 @@
 		EAA29033201D3E110047D11C /* FlightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA29032201D3E110047D11C /* FlightService.swift */; };
 		EAA29038201D413A0047D11C /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA29037201D413A0047D11C /* FlightViewController.swift */; };
 		EAA2903A201D4C590047D11C /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA29039201D4C590047D11C /* Seat.swift */; };
+		EAA2903C201D5E370047D11C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA2903B201D5E370047D11C /* Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		EAA29032201D3E110047D11C /* FlightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightService.swift; sourceTree = "<group>"; };
 		EAA29037201D413A0047D11C /* FlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewController.swift; sourceTree = "<group>"; };
 		EAA29039201D4C590047D11C /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
+		EAA2903B201D5E370047D11C /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				EAA2902D201D3A910047D11C /* Flight.swift */,
 				EAA29039201D4C590047D11C /* Seat.swift */,
+				EAA2903B201D5E370047D11C /* Weather.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				C8BF63CB201CFA640029BEC2 /* ViewController.swift in Sources */,
 				EAA29024201D36CF0047D11C /* Signal.swift in Sources */,
 				EAA29026201D36CF0047D11C /* Helper.swift in Sources */,
+				EAA2903C201D5E370047D11C /* Weather.swift in Sources */,
 				EAA2902E201D3A910047D11C /* Flight.swift in Sources */,
 				EAA29030201D3AA60047D11C /* Constants.swift in Sources */,
 				EAA29038201D413A0047D11C /* FlightViewController.swift in Sources */,

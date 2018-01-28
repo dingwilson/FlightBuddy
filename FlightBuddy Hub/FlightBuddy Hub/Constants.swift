@@ -19,11 +19,20 @@ class Constants {
     static var requestColor: UIColor = UIColor.yellow
     static var helpColor: UIColor = UIColor.red
     
+    static var gateNumber: String = "38A"
+    static var boardingTime: String = "10:45 AM"
+    static var flightTime: String = "11:00 AM"
+    
+    static var weatherStr: String = "W|Partly Cloudy|62F"
+    
+    static var fromAirport: String = "DFW"
+    static var toAirport: String = "ORD"
+
     static var flightList = [
-        Flight(value: "flight-123", displayName: "Flight 123"),
-        Flight(value: "flight-321", displayName: "Flight 123")
-        
+        Flight(flightInfo: Constants.flightInfo)
     ]
+    
+    static var flightInfo = "F|flight-123|Flight 123|38A|10:45AM|11:00AM|DFW|ORD"
     
 }
 
