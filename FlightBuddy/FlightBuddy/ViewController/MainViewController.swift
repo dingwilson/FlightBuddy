@@ -14,8 +14,6 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate, UIScrol
     let defaults = UserDefaults.standard
     let signal = Signal.instance
 
-    var waitingOnFA = false
-
     var imageView: UIImageView!
     var scrollImg: UIScrollView!
     
@@ -80,7 +78,6 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate, UIScrol
         
         signal.sendObject(object: statusUpdate, type: DataType.string.rawValue)
 
-        waitingOnFA = true
         HUD.show(.progress)
     }
     
