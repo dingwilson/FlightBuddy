@@ -150,16 +150,8 @@ class FlightViewController: UIViewController {
     }
  
     private func itemFromList(seat: String) {
-        var rowToRemove: Int = -1
-        for i in 0...self.orders.count-1 {
-            if (self.orders[i].seat == seat) {
-                rowToRemove  = i
-            }
-        }
-        if (rowToRemove > -1) {
-            self.orders.remove(at: rowToRemove)
-            self.tableView.reloadData()
-        }
+        self.orders = self.orders.filter { !($0.seat == seat) }
+        self.tableView.reloadData()
     }
 
     private func updateSeat(seat: Seat) {
