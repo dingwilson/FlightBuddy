@@ -144,6 +144,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TsF-1c-4bk">
+                                <rect key="frame" x="204" y="206" width="160" height="39.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFx-NM-glA">
                                 <rect key="frame" x="209" y="181" width="160" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -238,12 +244,6 @@
                                     <action selector="loadImage:" destination="JT9-VK-x9s" eventType="touchUpInside" id="Nie-kv-chZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TsF-1c-4bk">
-                                <rect key="frame" x="204" y="206" width="160" height="39.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -326,11 +326,62 @@
                         <outlet property="flightNumberLabel" destination="ItT-YN-Qpk" id="0um-SY-ymF"/>
                         <outlet property="templabel" destination="SJm-Vx-eL0" id="6vT-Np-kBp"/>
                         <outlet property="weatherDescLabel" destination="g20-YA-aCJ" id="Gzc-cO-9Cy"/>
+                        <segue destination="gbm-cj-CzH" kind="show" identifier="toFoodRequestView" id="rCF-Ix-Eo7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w05-cU-mMK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="33.733133433283363"/>
+        </scene>
+        <!--Food Request View Controller-->
+        <scene sceneID="v8d-lo-doT">
+            <objects>
+                <viewController id="gbm-cj-CzH" customClass="FoodRequestViewController" customModule="FlightBuddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q29-QY-JgK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YXf-X3-g0v">
+                                <rect key="frame" x="20" y="607" width="334" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title=""/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="gbm-cj-CzH" eventType="valueChanged" id="agW-ye-TAD"/>
+                                </connections>
+                            </segmentedControl>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PWJ-rS-W7X">
+                                <rect key="frame" x="0.0" y="286" width="375" height="299"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0r-Xu-MNZ">
+                                <rect key="frame" x="16" y="43" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mX6-Nv-s0d">
+                                <rect key="frame" x="288" y="43" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Checkout"/>
+                                <connections>
+                                    <action selector="checkout:" destination="gbm-cj-CzH" eventType="touchUpInside" id="X4N-HE-zga"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="F8T-it-Ydk"/>
+                    </view>
+                    <connections>
+                        <outlet property="pickerView" destination="PWJ-rS-W7X" id="czJ-Ap-cXc"/>
+                        <outlet property="segmentedControl" destination="YXf-X3-g0v" id="ePD-Gm-eJY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0QX-Xh-SKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2044" y="33.733133433283363"/>
         </scene>
     </scenes>
     <resources>

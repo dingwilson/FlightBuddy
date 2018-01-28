@@ -74,13 +74,8 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate, UIScrol
     }
 
     @IBAction func didPressStatus3(_ sender: Any) {
-        guard let userSettings = self.defaults.object(forKey: "userString") else {
-            return
-        }
         
-        let statusUpdate = "\(userSettings)|3"
-        
-        signal.sendObject(object: statusUpdate, type: DataType.string.rawValue)
+        self.performSegue(withIdentifier: "toFoodRequestView", sender: self)
     }
 
     @IBAction func didPressStatus4(_ sender: Any) {
