@@ -11,18 +11,36 @@ import UIKit
 class ViewController: UIViewController {
     
     let signal = Signal.instance
+    let flightService = FlightService.instance
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("View did load called...")
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    @IBAction func didPressJoinButton(_ sender: UIButton) {
+        print("Pressed button...")
+        let flight: Flight = Constants.flightList[0];
+        self.startConnection(flight: flight)
+    }
+    
+    
+    private func startConnection(flight: Flight) {
         
-        signal.initialize(serviceType: "signal-demo")
+        print("Starting service as: \(flight.value)")
+        signal.initialize(serviceType: flight.value )
+        print("Setting signal delegate...")
         signal.delegate = self
-        
+        print("Enabling auto connect...")
         signal.autoConnect()
-        // signal.acceptAuto()
+        
+        flightService.setCurrentFlight(flight: flight)
+        performSegue(withIdentifier: "toFlightView", sender: self)
     }
 }
+
+
 
 extension ViewController: SignalDelegate {
     func signal(didReceiveData data: Data, ofType type: UInt32) {

@@ -16,6 +16,11 @@
 		EAA29024201D36CF0047D11C /* Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA29020201D36CF0047D11C /* Signal.swift */; };
 		EAA29025201D36CF0047D11C /* Signal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAA29021201D36CF0047D11C /* Signal.storyboard */; };
 		EAA29026201D36CF0047D11C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA29022201D36CF0047D11C /* Helper.swift */; };
+		EAA2902E201D3A910047D11C /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA2902D201D3A910047D11C /* Flight.swift */; };
+		EAA29030201D3AA60047D11C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA2902F201D3AA60047D11C /* Constants.swift */; };
+		EAA29033201D3E110047D11C /* FlightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA29032201D3E110047D11C /* FlightService.swift */; };
+		EAA29038201D413A0047D11C /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA29037201D413A0047D11C /* FlightViewController.swift */; };
+		EAA2903A201D4C590047D11C /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA29039201D4C590047D11C /* Seat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		EAA29020201D36CF0047D11C /* Signal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signal.swift; sourceTree = "<group>"; };
 		EAA29021201D36CF0047D11C /* Signal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signal.storyboard; sourceTree = "<group>"; };
 		EAA29022201D36CF0047D11C /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		EAA2902D201D3A910047D11C /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		EAA2902F201D3AA60047D11C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EAA29032201D3E110047D11C /* FlightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightService.swift; sourceTree = "<group>"; };
+		EAA29037201D413A0047D11C /* FlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewController.swift; sourceTree = "<group>"; };
+		EAA29039201D4C590047D11C /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,12 +73,16 @@
 		C8BF63C7201CFA640029BEC2 /* FlightBuddy Hub */ = {
 			isa = PBXGroup;
 			children = (
+				EAA29034201D41040047D11C /* View Controllers */,
+				EAA29031201D3E040047D11C /* Services */,
+				EAA2902C201D3A820047D11C /* Models */,
 				C8BF63C8201CFA640029BEC2 /* AppDelegate.swift */,
 				C8BF63CA201CFA640029BEC2 /* ViewController.swift */,
 				C8BF63CC201CFA640029BEC2 /* Main.storyboard */,
 				C8BF63CF201CFA640029BEC2 /* Assets.xcassets */,
 				C8BF63D1201CFA640029BEC2 /* LaunchScreen.storyboard */,
 				C8BF63D4201CFA640029BEC2 /* Info.plist */,
+				EAA2902F201D3AA60047D11C /* Constants.swift */,
 			);
 			path = "FlightBuddy Hub";
 			sourceTree = "<group>";
@@ -82,6 +96,31 @@
 				EAA29020201D36CF0047D11C /* Signal.swift */,
 			);
 			path = Signal;
+			sourceTree = "<group>";
+		};
+		EAA2902C201D3A820047D11C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EAA2902D201D3A910047D11C /* Flight.swift */,
+				EAA29039201D4C590047D11C /* Seat.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EAA29031201D3E040047D11C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EAA29032201D3E110047D11C /* FlightService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EAA29034201D41040047D11C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EAA29037201D413A0047D11C /* FlightViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,7 +199,12 @@
 				C8BF63CB201CFA640029BEC2 /* ViewController.swift in Sources */,
 				EAA29024201D36CF0047D11C /* Signal.swift in Sources */,
 				EAA29026201D36CF0047D11C /* Helper.swift in Sources */,
+				EAA2902E201D3A910047D11C /* Flight.swift in Sources */,
+				EAA29030201D3AA60047D11C /* Constants.swift in Sources */,
+				EAA29038201D413A0047D11C /* FlightViewController.swift in Sources */,
+				EAA29033201D3E110047D11C /* FlightService.swift in Sources */,
 				C8BF63C9201CFA640029BEC2 /* AppDelegate.swift in Sources */,
+				EAA2903A201D4C590047D11C /* Seat.swift in Sources */,
 				EAA29023201D36CF0047D11C /* InviteTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
