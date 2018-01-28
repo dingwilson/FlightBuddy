@@ -132,7 +132,10 @@ extension AppDelegate: SignalDelegate {
                     setActiveStatus()
                 }
             }
+        } else if type == DataType.seatlay.rawValue {
+            FlightService.instance.setFlightLayout(image: UIImage(named: "seatlay")!)
         }
+        
     }
 
     func signal(connectedDevicesChanged devices: [String]) {
