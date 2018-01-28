@@ -1,3 +1,15 @@
-PODFILE CHECKSUM: 8f74fc7f9f6984bdbd1e4b6aca0c0e95522f8572
+PODS:
+  - BarcodeScanner (3.0.3)
+  - SwiftVideoBackground (2.0.0)
+
+DEPENDENCIES:
+  - BarcodeScanner
+  - SwiftVideoBackground
+
+SPEC CHECKSUMS:
+  BarcodeScanner: 0ecc25fb8b37e1d34cae9838a4b18b19df2786a2
+  SwiftVideoBackground: 41d030c232284482973e46959de6398a116c6b58
+
+PODFILE CHECKSUM: 9435706bb346192f9c8a2d6062937f231672cad8
 
 COCOAPODS: 1.4.0
