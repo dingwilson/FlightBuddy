@@ -247,6 +247,10 @@ class ChatViewController: MessagesViewController {
 
 extension ChatViewController: MessagesDataSource {
     
+    func avatarSize(for: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
+        return .zero
+    }
+
     func currentSender() -> Sender {
         return SampleData.shared.currentSender
     }
@@ -334,10 +338,6 @@ extension ChatViewController: MessagesDisplayDelegate {
 
 extension ChatViewController: MessagesLayoutDelegate {
     
-    func avatarPosition(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> AvatarPosition {
-        return AvatarPosition(horizontal: .natural, vertical: .messageBottom)
-    }
-    
     func messagePadding(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIEdgeInsets {
         if isFromCurrentSender(message: message) {
             return UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 4)
@@ -378,10 +378,6 @@ extension ChatViewController: MessagesLayoutDelegate {
 // MARK: - MessageCellDelegate
 
 extension ChatViewController: MessageCellDelegate {
-    
-    func didTapAvatar(in cell: MessageCollectionViewCell) {
-        print("Avatar tapped")
-    }
     
     func didTapMessage(in cell: MessageCollectionViewCell) {
         print("Message tapped")
@@ -446,6 +442,12 @@ extension ChatViewController: MessageInputBarDelegate {
                 
                 let strComp = userSettings.components(separatedBy: "|")
                 
+                let name = strComp[0]
+                let nameComp = name.components(separatedBy: " ")
+                let firstName = nameComp[0]
+                let lastNameChar = " \(nameComp[1].first!)."
+                let fullName = "\(firstName)\(lastNameChar)"
+                print(fullName)
                 let message = MockMessage(attributedText: attributedText, sender: currentSender(), messageId: UUID().uuidString, date: Date())
                 let userString = self.defaults.object(forKey: "userString")
                 let sendMessage = "\(userString!)|\(text)"
