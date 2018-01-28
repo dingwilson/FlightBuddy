@@ -19,11 +19,17 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate, UIScrol
     var imageView: UIImageView!
     var scrollImg: UIScrollView!
     
+    @IBOutlet weak var weatherDescLabel: UILabel!
+    @IBOutlet weak var flightNumberLabel: UILabel!
+    @IBOutlet weak var departTime: UILabel!
+    @IBOutlet weak var templabel: UILabel!
+    @IBOutlet weak var arriveTime: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setActiveStatus()
-        getStatus()
+        setLabels()
 
         PKHUD.sharedHUD.dimsBackground = true
         PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
@@ -36,10 +42,15 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate, UIScrol
         setActiveStatus()
     }
     
-    func getStatus() {
+    func setLabels() {
         let flight = FlightService.instance.getCurrentFlight()
         let weather = FlightService.instance.getCurrentWeather()
-        print(flight.boardingTime)
+        self.weatherDescLabel.text = weather.description
+        self.templabel.text = weather.degrees
+        self.flightNumberLabel.text = flight.displayName
+        self.departTime.text = flight.flightTime
+        self.arriveTime.text = Constants.arriveTime
+        
     }
 
     func setLoginStatus() {
