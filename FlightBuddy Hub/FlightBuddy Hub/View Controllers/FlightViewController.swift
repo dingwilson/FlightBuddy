@@ -474,6 +474,7 @@ extension FlightViewController: SignalDelegate {
             print("Connected Devices: \(devices)")
             self.sendFlightData()
             self.sendWeatherData()
+            self.sendSeatLayoutPic()
         } else {
             print("No devices connected")
         }
@@ -486,7 +487,6 @@ extension FlightViewController: SignalDelegate {
     func sendFlightData() {
         signal.sendObject(object: Constants.flightInfo, type: DataType.flight.rawValue)
     }
-
     func sendFoodResponse(seat: String) {
         signal.sendObject(object: seat, type: DataType.foodResponse.rawValue)
     }
@@ -494,4 +494,18 @@ extension FlightViewController: SignalDelegate {
     func sendHelpResponse(seat: String) {
         signal.sendObject(object: seat, type: DataType.helpResponse.rawValue)
     }
+    
+    func sendSeatLayoutPic() {
+        let image = UIImage(named: "seatlay")!
+        var data: Data?
+        
+        if let cgImage = image.cgImage, cgImage.renderingIntent == .defaultIntent {
+            data = UIImageJPEGRepresentation(image, 0.8)
+        }
+        else {
+            data = UIImagePNGRepresentation(image)
+        }
+        signal.sendObject(object: data!, type: DataType.seatlay.rawValue)
+    }
+    
 }

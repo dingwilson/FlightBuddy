@@ -106,7 +106,7 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate, UIScrol
         
         imageView = UIImageView(frame: self.view.bounds)
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "seatlay")
+        imageView.image = FlightService.instance.getFlightLayout()
         imageView!.layer.cornerRadius = 11.0
         imageView!.clipsToBounds = false
         
@@ -143,3 +143,4 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate, UIScrol
         sender.view?.removeFromSuperview()
     }
 }
+

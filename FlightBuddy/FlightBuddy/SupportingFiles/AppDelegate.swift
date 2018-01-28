@@ -119,7 +119,10 @@ extension AppDelegate: SignalDelegate {
                     HUD.flash(.success, delay: 2.0)
                 }
             }
+        } else if type == DataType.seatlay.rawValue {
+            FlightService.instance.setFlightLayout(image: UIImage(named: "seatlay")!)
         }
+        
     }
 
     func signal(connectedDevicesChanged devices: [String]) {

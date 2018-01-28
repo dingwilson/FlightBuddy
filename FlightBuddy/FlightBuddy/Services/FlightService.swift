@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 class FlightService {
     var currentFlight: Flight = Flight(flightInfo: Constants.flightInfo)
     var weather: Weather = Weather(weatherStr: Constants.weatherStr)
-    
+    var flightLayout: UIImage?
+
     static let instance = FlightService()
     
     init() {
@@ -35,6 +37,14 @@ class FlightService {
     
     func setWeather(weatherStr: String) {
         self.weather = Weather(weatherStr: weatherStr)
+    }
+    
+    func setFlightLayout(image: UIImage) {
+        self.flightLayout = image
+    }
+    
+    func getFlightLayout() -> UIImage {
+        return self.flightLayout!
     }
     
     private func log(m: String) {
