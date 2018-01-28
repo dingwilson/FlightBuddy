@@ -101,9 +101,21 @@ extension AppDelegate: SignalDelegate {
             FlightService.instance.setCurrentFlight(flight: Flight(flightInfo: string))
             print("Set flight...")
         } else if type == DataType.foodResponse.rawValue {
+            guard let userSettings = self.defaults.object(forKey: "userString") as! String?,
+                !userSettings.isEmpty else {
+                    return
+            }
+
             let string = data.convert() as! String
-            // TODO
-            print("food")
+
+            if let r = userSettings.range(of: "|", options: .backwards) {
+                let seat = userSettings.substring(from: r.upperBound)
+
+                if string == seat {
+                    HUD.flash(.success, delay: 2.0)
+                    setActiveStatus()
+                }
+            }
         } else if type == DataType.helpResponse.rawValue {
             guard let userSettings = self.defaults.object(forKey: "userString") as! String?,
                 !userSettings.isEmpty else {
@@ -117,6 +129,7 @@ extension AppDelegate: SignalDelegate {
 
                 if string == seat {
                     HUD.flash(.success, delay: 2.0)
+                    setActiveStatus()
                 }
             }
         }
