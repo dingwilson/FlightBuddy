@@ -22,7 +22,7 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate, UIScrol
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setLoginStatus()
+        setActiveStatus()
         getStatus()
 
         PKHUD.sharedHUD.dimsBackground = true
