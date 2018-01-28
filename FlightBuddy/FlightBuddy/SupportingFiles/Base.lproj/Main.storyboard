@@ -163,11 +163,21 @@
                                     <action selector="didPressStatus4:" destination="JT9-VK-x9s" eventType="touchUpInside" id="xmi-8n-wTq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDp-ic-z4H">
+                                <rect key="frame" x="147" y="617" width="80" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Load Image"/>
+                                <connections>
+                                    <action selector="loadImage:" destination="JT9-VK-x9s" eventType="touchUpInside" id="Nie-kv-chZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ton-EP-jCB" firstAttribute="top" secondItem="EaD-4I-5oH" secondAttribute="bottom" constant="8" symbolic="YES" id="0A6-3c-d6B"/>
                             <constraint firstItem="F9f-E5-GJI" firstAttribute="trailing" secondItem="IW0-ua-XdL" secondAttribute="trailing" id="0xx-qC-e3f"/>
+                            <constraint firstItem="kH6-aF-AaD" firstAttribute="bottom" secondItem="uac-GR-ssF" secondAttribute="bottom" id="4y7-nZ-sSl"/>
                             <constraint firstItem="EaD-4I-5oH" firstAttribute="top" secondItem="uac-GR-ssF" secondAttribute="top" constant="18" id="9wY-LL-k7B"/>
                             <constraint firstItem="2lN-83-McE" firstAttribute="leading" secondItem="Ton-EP-jCB" secondAttribute="trailing" constant="8" symbolic="YES" id="BDI-rs-dld"/>
                             <constraint firstItem="IW0-ua-XdL" firstAttribute="trailing" secondItem="wWD-90-cKA" secondAttribute="trailing" id="BST-31-W7K"/>
@@ -189,11 +199,14 @@
                             <constraint firstItem="kdW-yE-Fgn" firstAttribute="top" secondItem="Ton-EP-jCB" secondAttribute="bottom" constant="8" symbolic="YES" id="Xyh-BL-c4S"/>
                             <constraint firstItem="EaD-4I-5oH" firstAttribute="leading" secondItem="oVL-Yh-Z5e" secondAttribute="leadingMargin" id="aOC-qJ-PXj"/>
                             <constraint firstItem="2lN-83-McE" firstAttribute="centerX" secondItem="kdW-yE-Fgn" secondAttribute="centerX" id="dcz-yQ-MjC"/>
+                            <constraint firstItem="kH6-aF-AaD" firstAttribute="trailing" secondItem="uac-GR-ssF" secondAttribute="trailing" id="eB6-Yi-T81"/>
                             <constraint firstItem="kH6-aF-AaD" firstAttribute="bottom" secondItem="uac-GR-ssF" secondAttribute="bottom" id="obM-oJ-8zM"/>
+                            <constraint firstItem="kH6-aF-AaD" firstAttribute="leading" secondItem="uac-GR-ssF" secondAttribute="leading" id="q2g-iB-Vww"/>
                             <constraint firstItem="kH6-aF-AaD" firstAttribute="centerX" secondItem="kdW-yE-Fgn" secondAttribute="centerX" id="q9y-kc-Ia2"/>
                             <constraint firstItem="EaD-4I-5oH" firstAttribute="leading" secondItem="Ton-EP-jCB" secondAttribute="leading" id="qo9-aj-BJM"/>
                             <constraint firstItem="kH6-aF-AaD" firstAttribute="top" secondItem="oVL-Yh-Z5e" secondAttribute="top" id="tT5-4A-iVN"/>
                             <constraint firstItem="EaD-4I-5oH" firstAttribute="trailing" secondItem="F9f-E5-GJI" secondAttribute="trailing" id="vBY-zI-xZ3"/>
+                            <constraint firstItem="kH6-aF-AaD" firstAttribute="top" secondItem="oVL-Yh-Z5e" secondAttribute="top" id="vIe-NN-cxe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uac-GR-ssF"/>
                     </view>
