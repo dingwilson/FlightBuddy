@@ -20,6 +20,8 @@ class FlightViewController: UIViewController {
     
     let signal = Signal.instance
 
+    @IBOutlet weak var flightLabel: UILabel!
+    
     @IBOutlet weak var seat12A: UIButton!
     @IBOutlet weak var seat12B: UIButton!
     @IBOutlet weak var seat12C: UIButton!
@@ -64,8 +66,11 @@ class FlightViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let flight = FlightService.instance.getCurrentFlight()
-        
+
+        flightLabel.text = flight.displayName
+
         print("Starting service as: \(flight.value)")
         signal.initialize(serviceType: flight.value )
         print("Setting signal delegate...")
