@@ -33,7 +33,7 @@ class Constants {
     ]
     
     static var flightInfo = "F|flight-123|Flight 123|38A|10:45AM|11:00AM|DFW|ORD"
-    
+    static var arriveTime = "1:20 PM"
 }
 
 
