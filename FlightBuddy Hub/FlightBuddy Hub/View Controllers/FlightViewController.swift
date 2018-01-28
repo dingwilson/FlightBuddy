@@ -120,22 +120,27 @@ class FlightViewController: UIViewController {
         
         for button in self.row12 {
             button.backgroundColor = Constants.defaultColor
+            button.layer.cornerRadius = 8
         }
         
         for button in self.row13 {
             button.backgroundColor = Constants.defaultColor
+            button.layer.cornerRadius = 8
         }
         
         for button in self.row14 {
             button.backgroundColor = Constants.defaultColor
+            button.layer.cornerRadius = 8
         }
         
         for button in self.row15 {
             button.backgroundColor = Constants.defaultColor
+            button.layer.cornerRadius = 8
         }
         
         for button in self.row16 {
             button.backgroundColor = Constants.defaultColor
+            button.layer.cornerRadius = 8
         }
     }
 
