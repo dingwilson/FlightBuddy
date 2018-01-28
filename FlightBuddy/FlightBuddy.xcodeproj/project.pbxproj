@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3E257F046AD2F3C0EB64B186 /* Pods_FlightBuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5FE7033496EFE12EED35B2 /* Pods_FlightBuddy.framework */; };
+		C84EB1E1201E2FE800A8B853 /* EntertainmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84EB1E0201E2FE800A8B853 /* EntertainmentViewController.swift */; };
+		C84EB1E6201E303E00A8B853 /* TVButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84EB1E3201E303E00A8B853 /* TVButton.swift */; };
+		C84EB1E7201E303E00A8B853 /* TVButtonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84EB1E4201E303E00A8B853 /* TVButtonConstants.swift */; };
+		C84EB1E8201E303E00A8B853 /* TVButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84EB1E5201E303E00A8B853 /* TVButtonAnimation.swift */; };
 		C8ACC902201D3493000C7CEF /* Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACC8FE201D3493000C7CEF /* Signal.swift */; };
 		C8ACC903201D3493000C7CEF /* Signal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8ACC8FF201D3493000C7CEF /* Signal.storyboard */; };
 		C8ACC904201D3493000C7CEF /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACC900201D3493000C7CEF /* Helper.swift */; };
@@ -35,6 +39,10 @@
 		228AB0E6442462F9B2ECEACE /* Pods-FlightBuddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightBuddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlightBuddy/Pods-FlightBuddy.release.xcconfig"; sourceTree = "<group>"; };
 		552ACF4E2D888B52804F7BAB /* Pods-FlightBuddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightBuddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlightBuddy/Pods-FlightBuddy.debug.xcconfig"; sourceTree = "<group>"; };
 		BA5FE7033496EFE12EED35B2 /* Pods_FlightBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlightBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C84EB1E0201E2FE800A8B853 /* EntertainmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntertainmentViewController.swift; sourceTree = "<group>"; };
+		C84EB1E3201E303E00A8B853 /* TVButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVButton.swift; sourceTree = "<group>"; };
+		C84EB1E4201E303E00A8B853 /* TVButtonConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVButtonConstants.swift; sourceTree = "<group>"; };
+		C84EB1E5201E303E00A8B853 /* TVButtonAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVButtonAnimation.swift; sourceTree = "<group>"; };
 		C8ACC8FE201D3493000C7CEF /* Signal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signal.swift; sourceTree = "<group>"; };
 		C8ACC8FF201D3493000C7CEF /* Signal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signal.storyboard; sourceTree = "<group>"; };
 		C8ACC900201D3493000C7CEF /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -80,6 +88,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C84EB1E2201E301F00A8B853 /* TVButton */ = {
+			isa = PBXGroup;
+			children = (
+				C84EB1E3201E303E00A8B853 /* TVButton.swift */,
+				C84EB1E5201E303E00A8B853 /* TVButtonAnimation.swift */,
+				C84EB1E4201E303E00A8B853 /* TVButtonConstants.swift */,
+			);
+			path = TVButton;
+			sourceTree = "<group>";
+		};
 		C8ACC8F5201D344F000C7CEF /* Signal */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +123,7 @@
 				C8ACC913201D5F8C000C7CEF /* MainViewController.swift */,
 				EA74E7CE201DE33600E73B42 /* FoodRequestViewController.swift */,
 				EA7DAAD7201E231D00FBBAC8 /* MessagesViewController.swift */,
+				C84EB1E0201E2FE800A8B853 /* EntertainmentViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -138,6 +157,7 @@
 		C8EB867C201CF9970038AF87 = {
 			isa = PBXGroup;
 			children = (
+				C84EB1E2201E301F00A8B853 /* TVButton */,
 				C8ACC8F5201D344F000C7CEF /* Signal */,
 				C8EB8687201CF9980038AF87 /* FlightBuddy */,
 				C8EB8686201CF9980038AF87 /* Products */,
@@ -325,11 +345,15 @@
 				EA74E7CD201DAEFD00E73B42 /* FlightService.swift in Sources */,
 				EA7DAAD6201E22F200FBBAC8 /* MessagesService.swift in Sources */,
 				C8ACC914201D5F8C000C7CEF /* MainViewController.swift in Sources */,
+				C84EB1E8201E303E00A8B853 /* TVButtonAnimation.swift in Sources */,
 				EA74E7CF201DE33600E73B42 /* FoodRequestViewController.swift in Sources */,
 				C8ACC905201D3493000C7CEF /* InviteTableViewController.swift in Sources */,
 				C8ACC902201D3493000C7CEF /* Signal.swift in Sources */,
+				C84EB1E7201E303E00A8B853 /* TVButtonConstants.swift in Sources */,
+				C84EB1E6201E303E00A8B853 /* TVButton.swift in Sources */,
 				EA7DAADA201E23DB00FBBAC8 /* SampleData.swift in Sources */,
 				C8ACC90A201D39E9000C7CEF /* SplashViewController.swift in Sources */,
+				C84EB1E1201E2FE800A8B853 /* EntertainmentViewController.swift in Sources */,
 				EA7DAAD4201E22DD00FBBAC8 /* Messages.swift in Sources */,
 				EA74E7CA201DAC9E00E73B42 /* Weather.swift in Sources */,
 				C8ACC916201D628B000C7CEF /* Constants.swift in Sources */,

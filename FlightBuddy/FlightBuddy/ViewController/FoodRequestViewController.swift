@@ -107,7 +107,7 @@ extension FoodRequestViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         return pickerDataSource.count;
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
@@ -122,8 +122,7 @@ extension FoodRequestViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         default:
             break
         }
-
-        return pickerDataSource[row]
+        return NSAttributedString(string: pickerDataSource[row], attributes: [NSAttributedStringKey.foregroundColor:UIColor.white])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
