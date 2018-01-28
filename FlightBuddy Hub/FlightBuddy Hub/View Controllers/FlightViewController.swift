@@ -7,11 +7,16 @@
 //
 
 import UIKit
+
 enum seatStatus {
     case defult, checkedin
 }
 
 class FlightViewController: UIViewController {
+
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     let signal = Signal.instance
 
