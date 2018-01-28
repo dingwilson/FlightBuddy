@@ -41,10 +41,27 @@ class FlightViewController: UIViewController {
     @IBOutlet weak var seat14E: UIButton!
     @IBOutlet weak var seat14F: UIButton!
     
+    @IBOutlet weak var seat15A: UIButton!
+    @IBOutlet weak var seat15B: UIButton!
+    @IBOutlet weak var seat15C: UIButton!
+    @IBOutlet weak var seat15D: UIButton!
+    @IBOutlet weak var seat15E: UIButton!
+    @IBOutlet weak var seat15F: UIButton!
+    
+    @IBOutlet weak var seat16A: UIButton!
+    @IBOutlet weak var seat16B: UIButton!
+    @IBOutlet weak var seat16C: UIButton!
+    @IBOutlet weak var seat16D: UIButton!
+    @IBOutlet weak var seat16E: UIButton!
+    @IBOutlet weak var seat16F: UIButton!
+    
+    
     private let startingRow: Int = 12
     private var row12: [UIButton] = []
     private var row13: [UIButton] = []
     private var row14: [UIButton] = []
+    private var row15: [UIButton] = []
+    private var row16: [UIButton] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +99,22 @@ class FlightViewController: UIViewController {
         row14.append(seat14E)
         row14.append(seat14F)
         
+        row15.append(seat15A)
+        row15.append(seat15B)
+        row15.append(seat15C)
+        row15.append(seat15D)
+        row15.append(seat15D)
+        row15.append(seat15E)
+        row15.append(seat15F)
+        
+        row16.append(seat16A)
+        row16.append(seat16B)
+        row16.append(seat16C)
+        row16.append(seat16D)
+        row16.append(seat16D)
+        row16.append(seat16E)
+        row16.append(seat16F)
+        
         for button in self.row12 {
             button.backgroundColor = Constants.defaultColor
         }
@@ -91,6 +124,14 @@ class FlightViewController: UIViewController {
         }
         
         for button in self.row14 {
+            button.backgroundColor = Constants.defaultColor
+        }
+        
+        for button in self.row15 {
+            button.backgroundColor = Constants.defaultColor
+        }
+        
+        for button in self.row16 {
             button.backgroundColor = Constants.defaultColor
         }
     }
@@ -111,6 +152,10 @@ class FlightViewController: UIViewController {
             rowRef = self.row13
         } else if (seat.seatRow == "14") {
             rowRef = self.row14
+        } else if (seat.seatRow == "15") {
+            rowRef = self.row15
+        } else if (seat.seatRow == "16") {
+            rowRef = self.row16
         }
         
         if (rowRef == nil) {
