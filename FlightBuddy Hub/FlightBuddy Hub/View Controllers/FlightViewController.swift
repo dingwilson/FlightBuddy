@@ -17,8 +17,10 @@ class FlightViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    @IBOutlet weak var tableView: UITableView!
     
     let signal = Signal.instance
+    var orders: [Seat] = []
 
     @IBOutlet weak var flightLabel: UILabel!
     
@@ -66,7 +68,9 @@ class FlightViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         let flight = FlightService.instance.getCurrentFlight()
 
         flightLabel.text = flight.displayName
@@ -135,7 +139,9 @@ class FlightViewController: UIViewController {
         }
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -143,6 +149,19 @@ class FlightViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
  
+    private func itemFromList(seat: String) {
+        var rowToRemove: Int = -1
+        for i in 0...self.orders.count-1 {
+            if (self.orders[i].seat == seat) {
+                rowToRemove  = i
+            }
+        }
+        if (rowToRemove > -1) {
+            self.orders.remove(at: rowToRemove)
+            self.tableView.reloadData()
+        }
+    }
+
     private func updateSeat(seat: Seat) {
         var rowRef: [UIButton]? = nil
         if (seat.seatRow == "12") {
@@ -171,8 +190,15 @@ class FlightViewController: UIViewController {
             buttonRef.backgroundColor = Constants.requestColor
         } else if (seat.status == "4") {
             buttonRef.backgroundColor = Constants.helpColor
+            self.addItem(seat: seat)
         }
         
+        
+    }
+    
+    private func addItem(seat: Seat) {
+        self.orders.append(seat)
+        self.tableView.reloadData()
     }
     
     private func log(m: String) {
@@ -182,278 +208,248 @@ class FlightViewController: UIViewController {
     @IBAction func didPressSeatButton(_ sender: UIButton) {
         switch(sender){
         case seat12A: if let buttonStatus = seat12A.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "12A")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "12A")
                 sendHelpResponse(seat: "12A")
             }
         }
             break
-
+            
         case seat12B: if let buttonStatus = seat12B.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "12B")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "12B")
                 sendHelpResponse(seat: "12B")
             }
         }
             break
-
+            
         case seat12C: if let buttonStatus = seat12C.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "12C")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "12C")
                 sendHelpResponse(seat: "12C")
             }
         }
             break
-
+            
         case seat12D: if let buttonStatus = seat12D.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "12D")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "12D")
                 sendHelpResponse(seat: "12D")
             }
         }
             break
-
+            
         case seat12E: if let buttonStatus = seat12E.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "12E")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "12E")
                 sendHelpResponse(seat: "12E")
             }
         }
             break
-
+            
         case seat12F: if let buttonStatus = seat12F.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "12F")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "12F")
                 sendHelpResponse(seat: "12F")
             }
         }
             break
-
-
+            
+            
         case seat13A: if let buttonStatus = seat13A.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "13A")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "13A")
                 sendHelpResponse(seat: "13A")
             }
         }
             break
-
+            
         case seat13B: if let buttonStatus = seat13B.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "13B")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "13B")
                 sendHelpResponse(seat: "13B")
             }
         }
             break
-
+            
         case seat13C: if let buttonStatus = seat13C.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "13C")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "13C")
                 sendHelpResponse(seat: "13C")
             }
         }
             break
-
+            
         case seat13D: if let buttonStatus = seat13D.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "13D")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "13D")
                 sendHelpResponse(seat: "13D")
             }
         }
             break
-
+            
         case seat13E: if let buttonStatus = seat13E.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "13E")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "13E")
                 sendHelpResponse(seat: "13E")
             }
         }
             break
-
+            
         case seat13F: if let buttonStatus = seat13F.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "13F")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "13F")
                 sendHelpResponse(seat: "13F")
             }
         }
             break
-
-
+            
+            
         case seat14A: if let buttonStatus = seat14A.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "14A")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "14A")
                 sendHelpResponse(seat: "14A")
             }
         }
             break
-
+            
         case seat14B: if let buttonStatus = seat14B.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "14B")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "14B")
                 sendHelpResponse(seat: "14B")
             }
         }
             break
-
+            
         case seat14C: if let buttonStatus = seat14C.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "14C")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "14C")
                 sendHelpResponse(seat: "14C")
             }
         }
             break
-
+            
         case seat14D: if let buttonStatus = seat14D.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "14D")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "14D")
                 sendHelpResponse(seat: "14D")
             }
         }
             break
-
+            
         case seat14E: if let buttonStatus = seat14E.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "14E")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "14E")
                 sendHelpResponse(seat: "14E")
             }
         }
             break
-
+            
         case seat14F: if let buttonStatus = seat14F.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "14F")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat: "14F")
                 sendHelpResponse(seat: "14F")
             }
         }
             break
-
-
+            
+            
         case seat15A: if let buttonStatus = seat15A.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "15A")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat:"15A")
                 sendHelpResponse(seat: "15A")
             }
         }
             break
-
+            
         case seat15B: if let buttonStatus = seat15B.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "15B")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat:"15B")
                 sendHelpResponse(seat: "15B")
             }
         }
             break
-
+            
         case seat15C: if let buttonStatus = seat15C.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "15C")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat:"15C")
                 sendHelpResponse(seat: "15C")
             }
         }
             break
-
+            
         case seat15D: if let buttonStatus = seat15D.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "15D")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat:"15D")
                 sendHelpResponse(seat: "15D")
             }
         }
             break
-
+            
         case seat15E: if let buttonStatus = seat15E.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "15E")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat:"15E")
                 sendHelpResponse(seat: "15E")
             }
         }
             break
-
+            
         case seat15F: if let buttonStatus = seat15F.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "15F")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat:"15F")
                 sendHelpResponse(seat: "15F")
             }
         }
             break
-
-
+            
+            
         case seat16A: if let buttonStatus = seat16A.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "16A")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat:"16A")
                 sendHelpResponse(seat: "16A")
             }
         }
             break
-
+            
         case seat16B: if let buttonStatus = seat16B.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "16B")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat:"16B")
                 sendHelpResponse(seat: "16B")
             }
         }
             break
-
+            
         case seat16C: if let buttonStatus = seat16C.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "16C")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat:"16C")
                 sendHelpResponse(seat: "16C")
             }
         }
             break
-
+            
         case seat16D: if let buttonStatus = seat16D.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "16D")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat:"16D")
                 sendHelpResponse(seat: "16D")
             }
         }
             break
-
+            
         case seat16E: if let buttonStatus = seat16E.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "16E")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat:"16E")
                 sendHelpResponse(seat: "16E")
             }
         }
             break
-
+            
         case seat16F: if let buttonStatus = seat16F.backgroundColor {
-            if buttonStatus == Constants.requestColor {
-                sendFoodResponse(seat: "16F")
-            } else if buttonStatus == Constants.helpColor {
+            if buttonStatus == Constants.helpColor {
+                self.itemFromList(seat:"16F")
                 sendHelpResponse(seat: "16F")
             }
         }
-            break
+        break
         default:
             break
         }
@@ -508,4 +504,21 @@ extension FlightViewController: SignalDelegate {
         signal.sendObject(object: data!, type: DataType.seatlay.rawValue)
     }
     
+}
+
+extension FlightViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath as IndexPath)
+        cell.textLabel!.text = "\(self.orders[indexPath.row].seat): \(self.orders[indexPath.row].statusInformation)"
+        return cell
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.orders.count
+    }
 }
