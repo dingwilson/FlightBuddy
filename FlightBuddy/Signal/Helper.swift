@@ -16,4 +16,5 @@ enum DataType: UInt32 {
     case foodResponse = 104
     case helpResponse = 105
     case seatlay = 106
+    case chat = 107
 }

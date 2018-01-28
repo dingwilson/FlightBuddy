@@ -9,18 +9,20 @@
 import UIKit
 import AVFoundation
 import PKHUD
+import MessageKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     let signal = Signal.instance
-
+    
     let defaults = UserDefaults.standard
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+        
         // Access the shared, singleton audio session instance
         let session = AVAudioSession.sharedInstance()
         do {
@@ -36,56 +38,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let error as NSError {
             print("Failed to set the audio session category and mode: \(error.localizedDescription)")
         }
-
+        
         let flight = FlightService.instance.getCurrentFlight()
         signal.initialize(serviceType: flight.value)
         signal.delegate = self
         signal.autoConnect()
-
+        
         return true
     }
-
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         signal.autoConnect()
         setActiveStatus()
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         signal.autoConnect()
         setActiveStatus()
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         setLoginStatus()
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         setLoginStatus()
     }
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
         setLoginStatus()
     }
-
+    
     func setLoginStatus() {
         guard let userSettings = self.defaults.object(forKey: "userString") as! String?,
             !userSettings.isEmpty else {
-            return
+                return
         }
-
+        
         let statusUpdate = "\(userSettings)|1"
-
+        
         signal.sendObject(object: statusUpdate, type: DataType.string.rawValue)
     }
-
+    
     func setActiveStatus() {
         guard let userSettings = self.defaults.object(forKey: "userString") as! String?,
             !userSettings.isEmpty else {
-            return
+                return
         }
-
+        
         let statusUpdate = "\(userSettings)|2"
-
+        
         signal.sendObject(object: statusUpdate, type: DataType.string.rawValue)
     }
 }
@@ -105,12 +107,12 @@ extension AppDelegate: SignalDelegate {
                 !userSettings.isEmpty else {
                     return
             }
-
+            
             let string = data.convert() as! String
-
+            
             if let r = userSettings.range(of: "|", options: .backwards) {
                 let seat = userSettings.substring(from: r.upperBound)
-
+                
                 if string == seat {
                     HUD.flash(.success, delay: 2.0)
                     setActiveStatus()
@@ -118,9 +120,14 @@ extension AppDelegate: SignalDelegate {
             }
         } else if type == DataType.seatlay.rawValue {
             FlightService.instance.setFlightLayout(image: UIImage(named: "seatlay")!)
+        } else if type == DataType.chat.rawValue {
+            let strComp = (data.convert() as! String).components(separatedBy: "|")
+            let overallMessage = strComp[strComp.count-1]
+            let message = MockMessage(text: overallMessage, sender: Sender(id: strComp[0], displayName: strComp[0]), messageId: UUID().uuidString, date: Date())
+            MessageService.instance.messages.append(message)
         }
     }
-
+    
     func signal(connectedDevicesChanged devices: [String]) {
         if (devices.count > 0) {
             print("Connected Devices: \(devices)")
@@ -129,3 +136,4 @@ extension AppDelegate: SignalDelegate {
         }
     }
 }
+

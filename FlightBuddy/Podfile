@@ -9,5 +9,6 @@ target 'FlightBuddy' do
   pod 'SwiftVideoBackground'
   pod 'BarcodeScanner'
   pod 'PKHUD'
+  pod 'MessageKit'
 
 end

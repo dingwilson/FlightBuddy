@@ -264,6 +264,9 @@
                                 <state key="normal" image="chat">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="TYm-SC-55X" kind="show" id="mzM-4z-XQc"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entertainment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShR-jW-Beh">
                                 <rect key="frame" x="55" y="472" width="109" height="21"/>
@@ -495,6 +498,21 @@
                 <exit id="ZGF-pY-F3Q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2044" y="33.733133433283363"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="LBG-ft-S3Q">
+            <objects>
+                <viewController id="TYm-SC-55X" customClass="ChatViewController" customModule="FlightBuddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fNh-nq-64Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="qQZ-im-goa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Md8-Zv-YfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2044" y="807"/>
         </scene>
     </scenes>
     <resources>

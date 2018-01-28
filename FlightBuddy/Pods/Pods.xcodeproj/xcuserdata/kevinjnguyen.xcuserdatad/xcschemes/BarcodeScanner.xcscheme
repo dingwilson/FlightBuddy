@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C82E5B882EEDD7119BBC004C8A555DD1'
-               BlueprintName = 'PeerKit'
+               BlueprintIdentifier = '5BA79C5E56B0CF10739BB5EA7BB295B5'
+               BlueprintName = 'BarcodeScanner'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'PeerKit.framework'>
+               BuildableName = 'BarcodeScanner.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
