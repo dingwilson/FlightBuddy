@@ -22,6 +22,22 @@ class MainViewController: UIViewController {
 
         signal.autoConnect()
     }
+
+    @IBAction func didPressStatus1(_ sender: Any) {
+        
+    }
+
+    @IBAction func didPressStatus2(_ sender: Any) {
+
+    }
+
+    @IBAction func didPressStatus3(_ sender: Any) {
+
+    }
+
+    @IBAction func didPressStatus4(_ sender: Any) {
+
+    }
 }
 
 extension MainViewController: SignalDelegate {
