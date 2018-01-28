@@ -10,20 +10,26 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    let signal = Signal.instance
-
     let defaults = UserDefaults.standard
+    let signal = Signal.instance
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setLoginStatus()
+        getStatus()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         setLoginStatus()
+    }
+    
+    func getStatus() {
+        let flight = FlightService.instance.getCurrentFlight()
+        let weather = FlightService.instance.getCurrentWeather()
+        print(flight.boardingTime)
     }
 
     func setLoginStatus() {
