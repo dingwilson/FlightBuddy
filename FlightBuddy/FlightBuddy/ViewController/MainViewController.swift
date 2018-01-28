@@ -16,45 +16,48 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        signal.initialize(serviceType: Constants.flightList[0].value)
-        signal.delegate = self
-
-        signal.autoConnect()
     }
 
     @IBAction func didPressStatus1(_ sender: Any) {
+        guard let userSettings = self.defaults.object(forKey: "userString") else {
+            return
+        }
         
+        let statusUpdate = "\(userSettings)|1"
+        
+        signal.sendObject(object: statusUpdate, type: DataType.string.rawValue)
     }
 
     @IBAction func didPressStatus2(_ sender: Any) {
-
+        guard let userSettings = self.defaults.object(forKey: "userString") else {
+            return
+        }
+        
+        let statusUpdate = "\(userSettings)|2"
+        
+        signal.sendObject(object: statusUpdate, type: DataType.string.rawValue)
     }
 
     @IBAction func didPressStatus3(_ sender: Any) {
-
+        guard let userSettings = self.defaults.object(forKey: "userString") else {
+            return
+        }
+        
+        let statusUpdate = "\(userSettings)|3"
+        
+        signal.sendObject(object: statusUpdate, type: DataType.string.rawValue)
     }
 
     @IBAction func didPressStatus4(_ sender: Any) {
-
+        guard let userSettings = self.defaults.object(forKey: "userString") else {
+            return
+        }
+        
+        let statusUpdate = "\(userSettings)|4"
+        
+        signal.sendObject(object: statusUpdate, type: DataType.string.rawValue)
     }
 }
 
-extension MainViewController: SignalDelegate {
-    func signal(didReceiveData data: Data, ofType type: UInt32) {
-        if type == DataType.string.rawValue {
-            let string = data.convert() as! String
-            print(string)
-        }
-    }
 
-    func signal(connectedDevicesChanged devices: [String]) {
-        if (devices.count > 0) {
-            print("Connected Devices: \(devices)")
-        } else {
-            print("No devices connected")
-        }
-    }
-
-}
 
