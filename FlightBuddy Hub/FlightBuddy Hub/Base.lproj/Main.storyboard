@@ -88,6 +88,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="e4s-6g-UkK"/>
                     <connections>
+                        <outlet property="pickerView" destination="zBU-hg-ozs" id="AOv-6v-Rc9"/>
                         <segue destination="ya0-cc-6jf" kind="show" identifier="toFlightView" animates="NO" action="showDetailViewController:sender:" id="DpH-mg-08e"/>
                     </connections>
                 </viewController>

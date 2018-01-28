@@ -29,10 +29,20 @@ class Constants {
     static var toAirport: String = "ORD"
 
     static var flightList = [
-        Flight(flightInfo: Constants.flightInfo)
+        Flight(flightInfo: Constants.flightInfo),
+        Flight(flightInfo: Constants.flightInfo2),
+        Flight(flightInfo: Constants.flightInfo3),
+        Flight(flightInfo: Constants.flightInfo4),
+        Flight(flightInfo: Constants.flightInfo5),
+
     ]
     
     static var flightInfo = "F|flight-123|Flight 123|38A|10:45AM|11:00AM|DFW|ORD"
+    static var flightInfo2 = "F|flight-285|Flight 285|38A|1:15PM|5:00PM|LAX|ORD"
+    static var flightInfo3 = "F|flight-456|Flight 456|38A|1:15PM|5:00PM|LAX|ORD"
+    static var flightInfo4 = "F|flight-646|Flight 646|38A|1:15PM|5:00PM|LAX|ORD"
+    static var flightInfo5 = "F|flight-711|Flight 711|38A|1:15PM|5:00PM|LAX|ORD"
+
     
 }
 
