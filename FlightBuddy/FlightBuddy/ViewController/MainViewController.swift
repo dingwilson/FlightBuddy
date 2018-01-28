@@ -32,14 +32,7 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate, UIScrol
         setLabels()
 
         PKHUD.sharedHUD.dimsBackground = true
-        PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        setLoginStatus()
-        setActiveStatus()
+        PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
     }
     
     func setLabels() {
