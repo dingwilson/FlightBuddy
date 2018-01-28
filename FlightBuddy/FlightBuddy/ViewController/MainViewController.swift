@@ -7,17 +7,23 @@
 //
 
 import UIKit
+import PKHUD
 
 class MainViewController: UIViewController {
 
     let defaults = UserDefaults.standard
     let signal = Signal.instance
 
+    var waitingOnFA = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setLoginStatus()
         getStatus()
+
+        PKHUD.sharedHUD.dimsBackground = true
+        PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,5 +77,8 @@ class MainViewController: UIViewController {
         let statusUpdate = "\(userSettings)|4"
         
         signal.sendObject(object: statusUpdate, type: DataType.string.rawValue)
+
+        waitingOnFA = true
+        HUD.show(.progress)
     }
 }

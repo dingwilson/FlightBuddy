@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import PKHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -36,9 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Failed to set the audio session category and mode: \(error.localizedDescription)")
         }
 
-        signal.initialize(serviceType: Constants.flightList[0].value)
+        let flight = FlightService.instance.getCurrentFlight()
+        signal.initialize(serviceType: flight.value)
         signal.delegate = self
-
         signal.autoConnect()
 
         return true
@@ -91,9 +92,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: SignalDelegate {
     func signal(didReceiveData data: Data, ofType type: UInt32) {
-        if type == DataType.string.rawValue {
+        if type == DataType.weather.rawValue {
             let string = data.convert() as! String
-            print(string)
+            FlightService.instance.setWeather(weatherStr: string)
+            print("Set weather...")
+        } else if type == DataType.flight.rawValue {
+            let string = data.convert() as! String
+            FlightService.instance.setCurrentFlight(flight: Flight(flightInfo: string))
+            print("Set flight...")
+        } else if type == DataType.foodResponse.rawValue {
+            let string = data.convert() as! String
+            // TODO
+            print("food")
+        } else if type == DataType.helpResponse.rawValue {
+            guard let userSettings = self.defaults.object(forKey: "userString") as! String?,
+                !userSettings.isEmpty else {
+                    return
+            }
+
+            let string = data.convert() as! String
+
+            if let r = userSettings.range(of: "|", options: .backwards) {
+                let seat = userSettings.substring(from: r.upperBound)
+
+                if string == seat {
+                    HUD.flash(.success, delay: 2.0)
+                }
+            }
         }
     }
 
@@ -104,5 +129,4 @@ extension AppDelegate: SignalDelegate {
             print("No devices connected")
         }
     }
-
 }

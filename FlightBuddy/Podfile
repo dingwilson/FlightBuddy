@@ -8,5 +8,6 @@ target 'FlightBuddy' do
   # Pods for FlightBuddy
   pod 'SwiftVideoBackground'
   pod 'BarcodeScanner'
+  pod 'PKHUD'
 
 end

@@ -13,4 +13,6 @@ enum DataType: UInt32 {
     case image = 101
     case weather = 102
     case flight = 103
+    case foodResponse = 104
+    case helpResponse = 105
 }

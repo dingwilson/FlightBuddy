@@ -1,15 +1,18 @@
 PODS:
   - BarcodeScanner (3.0.3)
+  - PKHUD (5.0.0)
   - SwiftVideoBackground (2.0.0)
 
 DEPENDENCIES:
   - BarcodeScanner
+  - PKHUD
   - SwiftVideoBackground
 
 SPEC CHECKSUMS:
   BarcodeScanner: 0ecc25fb8b37e1d34cae9838a4b18b19df2786a2
+  PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
   SwiftVideoBackground: 41d030c232284482973e46959de6398a116c6b58
 
-PODFILE CHECKSUM: 9435706bb346192f9c8a2d6062937f231672cad8
+PODFILE CHECKSUM: 5ecb212c4572a3f76ece737fbf1f64f29f569fc6
 
 COCOAPODS: 1.4.0
