@@ -36,7 +36,7 @@ class Constants {
     static var arriveTime = "1:20 PM"
     static var drinks = ["Water", "Soda", "Juice", "Beer (5)", "Wine (4)"]
     static var snacks = ["Pretzels (1)", "Nuts (1)", "Chips (2)", "Fruit (2)", "Chocolate (3)"]
-    static var entres = ["Sandwich (5)", "Chicken Parmesan (8)", "Salad (4)", "Steak Wrap (10)"]
+    static var entrees = ["Sandwich (5)", "Chicken Parmesan (8)", "Salad (4)", "Steak Wrap (10)"]
 }
 
 
