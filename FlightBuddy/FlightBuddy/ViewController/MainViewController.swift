@@ -17,13 +17,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setLoginStatus()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        setLoginStatus()
+        setActiveStatus()
     }
 
     func setLoginStatus() {
@@ -36,7 +30,7 @@ class MainViewController: UIViewController {
         signal.sendObject(object: statusUpdate, type: DataType.string.rawValue)
     }
 
-    @IBAction func didPressStatus2(_ sender: Any) {
+    func setActiveStatus() {
         guard let userSettings = self.defaults.object(forKey: "userString") else {
             return
         }
